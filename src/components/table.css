@@ -4,7 +4,6 @@
   width: 100%;
   overflow-x: auto;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
   background-color: var(--bg-white);
 }
 
@@ -36,10 +35,6 @@
   color: var(--text-primary);
 }
 
-.societies-table tbody tr {
-  transition: background-color 0.2s;
-}
-
 .societies-table tbody tr:hover {
   background-color: var(--bg-light);
 }
@@ -48,7 +43,6 @@
   border-bottom: none;
 }
 
-/* Alineaciones */
 .text-right {
   text-align: right;
 }
@@ -65,7 +59,6 @@
   color: var(--danger);
 }
 
-/* Celda de nombre */
 .nombre-cell {
   display: flex;
   align-items: center;
@@ -87,11 +80,6 @@
   flex-shrink: 0;
 }
 
-.nombre-text {
-  flex: 1;
-}
-
-/* Badges */
 .badge {
   display: inline-block;
   padding: 4px 8px;
@@ -114,16 +102,7 @@
   font-weight: 600;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  .table-wrapper {
-    overflow-x: auto;
-  }
-
-  .societies-table {
-    font-size: 13px;
-  }
-
   .societies-table th,
   .societies-table td {
     padding: 8px 6px;
@@ -131,7 +110,7 @@
   }
 
   .societies-table th {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .avatar {
@@ -140,38 +119,8 @@
     font-size: 12px;
   }
 
-  .nombre-cell {
-    gap: 6px;
-  }
-
-  /* Ocultar columnas en mobile */
   .societies-table th:nth-child(5),
   .societies-table td:nth-child(5) {
     display: none;
-  }
-}
-
-/* Scroll horizontal en mobile */
-@media (max-width: 480px) {
-  .table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .societies-table th,
-  .societies-table td {
-    padding: 6px 4px;
-    font-size: 11px;
-  }
-
-  .societies-table th {
-    font-size: 10px;
-  }
-
-  .nombre-text {
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }

@@ -2,14 +2,10 @@ import './kpi-card.css';
 
 export default function KPICard({ label, value, change, icon = '📊', type = 'neutral' }) {
   const formatValue = (num) => {
-    if (num >= 1000000) {
-      return `$${(num / 1000000).toFixed(2)}M`;
-    }
-    if (num >= 1000) {
-      return `$${(num / 1000).toFixed(0)}K`;
-    }
-    return `$${num.toFixed(0)}`;
-  };
+    if (num == null) return '$0';
+    const sign = num < 0 ? '-' : '';
+    return `${sign}$${Math.abs(num).toLocaleString('es-CL')}`;
+  };  
 
   const isPositive = change >= 0;
 

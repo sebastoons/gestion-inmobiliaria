@@ -1,9 +1,10 @@
 import './table.css';
 
 export default function SociedadesTable({ societies }) {
-  const formatCurrency = (value) => {
-    return `$${value.toLocaleString('es-CL')}`;
-  };
+  const formatCurrency = (value) =>
+    `$${Math.abs(value).toLocaleString('es-CL')}`;
+
+  const initial = (nombre) => nombre.charAt(2) || nombre.charAt(0);
 
   return (
     <div className="table-wrapper">
@@ -20,20 +21,24 @@ export default function SociedadesTable({ societies }) {
           </tr>
         </thead>
         <tbody>
-          {societies.map((sociedad) => (
-            <tr key={sociedad.id} className="table-row">
+          {societies.map((s) => (
+            <tr key={s.id} className="table-row">
               <td className="nombre-cell">
-                <span className="avatar">{sociedad.nombre.charAt(0)}</span>
-                <span className="nombre-text">{sociedad.nombre}</span>
+                <span className="avatar">{initial(s.nombre)}</span>
+                <span className="nombre-text">{s.nombre}</span>
               </td>
-              <td className="text-right">{formatCurrency(sociedad.saldoInicial)}</td>
-              <td className="text-right text-success">+{formatCurrency(sociedad.ingresos)}</td>
-              <td className="text-right text-danger">-{formatCurrency(sociedad.egresos)}</td>
-              <td className="text-right font-bold">{formatCurrency(sociedad.flujoNeto)}</td>
-              <td className="text-right">{formatCurrency(sociedad.proyeccion)}</td>
+              <td className="text-right">{formatCurrency(s.saldoInicial)}</td>
+              <td className="text-right text-success">+{formatCurrency(s.ingresos)}</td>
+              <td className="text-right text-danger">-{formatCurrency(s.egresos)}</td>
+              <td className={`text-right font-bold ${s.flujoNeto >= 0 ? 'text-success' : 'text-danger'}`}>
+                {s.flujoNeto >= 0 ? '' : '-'}{formatCurrency(s.flujoNeto)}
+              </td>
+              <td className={`text-right ${s.proyeccion >= 0 ? '' : 'text-danger'}`}>
+                {formatCurrency(s.proyeccion)}
+              </td>
               <td className="text-center">
-                <span className={`badge ${sociedad.variacion >= 0 ? 'positive' : 'negative'}`}>
-                  {sociedad.variacion >= 0 ? '+' : ''}{sociedad.variacion.toFixed(1)}%
+                <span className={`badge ${s.variacion >= 0 ? 'positive' : 'negative'}`}>
+                  {s.variacion >= 0 ? '+' : ''}{s.variacion}%
                 </span>
               </td>
             </tr>

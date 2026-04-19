@@ -36,7 +36,7 @@ export const mockData = {
       egresos: 420000,
       flujoNeto: 470000,
       proyeccion: 2570000,
-      variacion: 40.4,
+      variacion: 0.4,
     },
     {
       id: 4,
@@ -78,13 +78,6 @@ export const mockData = {
     { mes: 'Jun', ingresos: 210000, egresos: 155000 },
   ],
 
-  categoriasIngresos: [
-    { nombre: 'Arriendos', porcentaje: 45 },
-    { nombre: 'Ventas Directas', porcentaje: 30 },
-    { nombre: 'Intereses', porcentaje: 15 },
-    { nombre: 'Otros', porcentaje: 10 },
-  ],
-
   transacciones: [
     {
       id: 1,
@@ -102,28 +95,44 @@ export const mockData = {
       monto: 12500,
       tipo: 'ingreso',
     },
-    {
-      id: 3,
-      fecha: '2024-10-23',
-      descripcion: 'Servicios Básicos Septiembre',
-      categoria: 'Gastos Admin.',
-      monto: -850.5,
-      tipo: 'egreso',
-    },
-    {
-      id: 4,
-      fecha: '2024-10-22',
-      descripcion: 'Intereses Bancarios Cuenta Corriente',
-      categoria: 'Financiero',
-      monto: 120,
-      tipo: 'ingreso',
-    },
+  ],
+   categoriasIngresos: [
+    { nombre: 'Arriendos',       porcentaje: 45 },
+    { nombre: 'Ventas Directas', porcentaje: 30 },
+    { nombre: 'Intereses',       porcentaje: 15 },
+    { nombre: 'Otros',           porcentaje: 10 },
+  ],
+  waterfallData: [
+    { name: 'Inicio',       value: 4800000  },
+    { name: 'Ingresos Op.', value: 2020000  },
+    { name: 'Egresos Op.',  value: -1389750 },
+    { name: 'Impuestos',    value: -200000  },
+    { name: 'Inversiones',  value: 200000   },
+    { name: 'Final',        value: 5430250  },
   ],
 };
 
 export const menuItems = [
-  { id: 'inicio', label: 'Inicio', icon: '🏠' },
-  { id: 'flujo-caja', label: 'Flujo de Caja', icon: '📊' },
-  { id: 'analizar-excel', label: 'Analizar Excel', icon: '📄' },
-  { id: 'sociedades', label: 'Sociedades', icon: '🏢' },
+  {
+    id: 'inicio',
+    label: 'Inicio',
+    icon: '🏠',
+    children: [
+      {
+        id: 'flujo-caja',
+        label: 'Flujo de Caja',
+        icon: '📊',
+        children: [
+          { id: 'dashboard', label: 'Dashboard', icon: '🗂️' },
+          { id: 'analisis-excel', label: 'Análisis Excel', icon: '📄' },
+        ],
+      },
+      {
+        id: 'bh-terceros',
+        label: 'BH de Terceros',
+        icon: '🏦',
+        children: [],
+      },
+    ],
+  },
 ];

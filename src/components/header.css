@@ -4,11 +4,14 @@
   background-color: var(--bg-white);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  height: 64px;
+  height: 56px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  gap: 12px;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  grid-column: 1 / -1;
 }
 
 .header-content {
@@ -19,10 +22,7 @@
   gap: 16px;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-}
+.header-left { display: flex; align-items: center; }
 
 .logo {
   display: flex;
@@ -31,12 +31,10 @@
   cursor: pointer;
 }
 
-.logo-icon {
-  font-size: 24px;
-}
+.logo-icon { font-size: 22px; }
 
 .logo-text {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--primary);
   white-space: nowrap;
@@ -47,26 +45,24 @@
   align-items: center;
   gap: 12px;
   flex: 1;
+  justify-content: flex-end;
 }
 
 .filters {
   display: flex;
   gap: 8px;
-  flex: 1;
-  max-width: 500px;
 }
 
 .filter-select,
 .filter-date {
-  flex: 1;
-  min-width: 120px;
-  height: 40px;
-  padding: 8px 12px;
+  height: 36px;
+  padding: 0 10px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  font-size: 14px;
+  font-size: 13px;
   background-color: var(--bg-white);
   color: var(--text-primary);
+  min-width: 120px;
 }
 
 .filter-select:focus,
@@ -76,54 +72,36 @@
   box-shadow: 0 0 0 3px rgba(43, 127, 224, 0.1);
 }
 
-.header-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--bg-gray);
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+/* UF Chip */
+.uf-chip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
+  gap: 6px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  padding: 4px 12px;
+  white-space: nowrap;
 }
 
-.header-btn:hover {
-  background-color: #E5E7EB;
+.uf-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #1d4ed8;
+  text-transform: uppercase;
 }
 
-/* Mobile */
+.uf-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e40af;
+}
+
 @media (max-width: 768px) {
-  .header {
-    padding: 0 12px;
-    height: 56px;
-    flex-direction: column;
-  }
-
-  .header-content {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .header-right {
-    width: 100%;
-  }
-
-  .filters {
-    width: 100%;
-    gap: 6px;
-  }
-
-  .filter-select,
-  .filter-date {
-    font-size: 13px;
-    height: 36px;
-    padding: 6px 10px;
-  }
-
-  .logo-text {
-    display: none;
-  }
+  .header { padding: 0 12px; height: 52px; }
+  .logo-text { display: none; }
+  .filter-date { display: none; }
+  .filter-select { min-width: 140px; font-size: 12px; }
+  .uf-value { font-size: 12px; }
 }
