@@ -1,0 +1,177 @@
+@import '../styles/colors.css';
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--bg-white);
+}
+
+.societies-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.societies-table thead {
+  background-color: var(--bg-gray);
+  border-bottom: 2px solid var(--border);
+}
+
+.societies-table th {
+  padding: 12px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.societies-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.societies-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.societies-table tbody tr:hover {
+  background-color: var(--bg-light);
+}
+
+.societies-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alineaciones */
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* Celda de nombre */
+.nombre-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.nombre-text {
+  flex: 1;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.positive {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.badge.negative {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .societies-table {
+    font-size: 13px;
+  }
+
+  .societies-table th,
+  .societies-table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  .societies-table th {
+    font-size: 11px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .nombre-cell {
+    gap: 6px;
+  }
+
+  /* Ocultar columnas en mobile */
+  .societies-table th:nth-child(5),
+  .societies-table td:nth-child(5) {
+    display: none;
+  }
+}
+
+/* Scroll horizontal en mobile */
+@media (max-width: 480px) {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .societies-table th,
+  .societies-table td {
+    padding: 6px 4px;
+    font-size: 11px;
+  }
+
+  .societies-table th {
+    font-size: 10px;
+  }
+
+  .nombre-text {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

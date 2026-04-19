@@ -1,0 +1,34 @@
+@import '../styles/colors.css';
+
+.chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recharts-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.recharts-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.recharts-cartesian-axis-tick {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .recharts-text {
+    font-size: 12px;
+  }
+
+  .recharts-cartesian-axis-tick {
+    font-size: 10px;
+  }
+}
